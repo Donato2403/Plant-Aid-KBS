@@ -18,19 +18,9 @@ Il sistema combina:
 
 ---
 
-### Convenzioni di Commit
-
-- `feat:` - Nuova funzionalità
-- `fix:` - Correzione bug
-- `docs:` - Documentazione
-- `refactor:` - Refactoring codice
-- `test:` - Aggiunta test
-
----
-
 ## 👥 Autori
 
-**[Il Tuo Nome]**  
+**Donato Cancellara**  
 Corso di Ingegneria della Conoscenza  
 Università degli Studi di Bari Aldo Moro  
 Dipartimento di Informatica
@@ -40,8 +30,6 @@ Dipartimento di Informatica
 ## 🔗 Riferimenti
 
 - [Owlready2 Documentation](https://owlready2.readthedocs.io/)
-- [pyDatalog Tutorial](https://sites.google.com/site/pydatalog/)
+- [Clingo User Guide](https://www.google.com/search?q=https://potassco.org/clingo/user-guide/)
 - [pgmpy Documentation](https://pgmpy.org/)
 - [Scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
-
-

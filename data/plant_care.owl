@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.plantaid.org/ontologia/plant_care.owl"
+         xmlns="http://www.plantaid.org/ontologia/plant_care.owl#">
+
+<owl:Ontology rdf:about="http://www.plantaid.org/ontologia/plant_care.owl"/>
+
+<owl:ObjectProperty rdf:about="#colpisce">
+  <rdfs:domain rdf:resource="#Malattia"/>
+  <rdfs:range rdf:resource="#Pianta"/>
+  <owl:inverseOf rdf:resource="#suscettibile_a"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#presenta_sintomo">
+  <rdfs:domain rdf:resource="#Malattia"/>
+  <rdfs:range rdf:resource="#Sintomo"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#richiede_trattamento">
+  <rdfs:domain rdf:resource="#Malattia"/>
+  <rdfs:range rdf:resource="#Trattamento"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#causata_da">
+  <rdfs:domain rdf:resource="#Malattia"/>
+  <rdfs:range rdf:resource="#AgentePatogeno"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#suscettibile_a">
+  <rdfs:domain rdf:resource="#Pianta"/>
+  <rdfs:range rdf:resource="#Malattia"/>
+  <owl:inverseOf rdf:resource="#colpisce"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#ha_nome_scientifico">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Pianta"/>
+        <rdf:Description rdf:about="#Malattia"/>
+        <rdf:Description rdf:about="#AgentePatogeno"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ha_descrizione">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ha_gravita">
+  <rdfs:domain rdf:resource="#Malattia"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ha_periodo_attivo">
+  <rdfs:domain rdf:resource="#Malattia"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ha_dosaggio">
+  <rdfs:domain rdf:resource="#Trattamento"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Pianta">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Malattia">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Sintomo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Trattamento">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AgentePatogeno">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Olivo">
+  <rdfs:subClassOf rdf:resource="#Pianta"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Rosa">
+  <rdfs:subClassOf rdf:resource="#Pianta"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Basilico">
+  <rdfs:subClassOf rdf:resource="#Pianta"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Fungo">
+  <rdfs:subClassOf rdf:resource="#AgentePatogeno"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Batterio">
+  <rdfs:subClassOf rdf:resource="#AgentePatogeno"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Occhio_di_Pavone">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Olivo_Europeo"/>
+  <presenta_sintomo rdf:resource="#Ingiallimento_Foglie"/>
+  <presenta_sintomo rdf:resource="#Macchie_Circolari_Grigie"/>
+  <presenta_sintomo rdf:resource="#Caduta_Foglie"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
+  <causata_da rdf:resource="#Spilocaea_oleagina"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spilocaea oleagina</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia fungina con macchie circolari grigie e alone giallo sulle foglie</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primavera-Autunno</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rogna_Olivo">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Olivo_Europeo"/>
+  <presenta_sintomo rdf:resource="#Tumori_Rami"/>
+  <richiede_trattamento rdf:resource="#Potatura_Parti_Infette"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
+  <causata_da rdf:resource="#Pseudomonas_savastanoi"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pseudomonas savastanoi</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia batterica con formazione di tumori su rami e tronco</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tutto_anno</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Lebbra_Olivo">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Olivo_Europeo"/>
+  <presenta_sintomo rdf:resource="#Macchie_Bruno_Nerastre_Frutti"/>
+  <presenta_sintomo rdf:resource="#Ingiallimento_Foglie"/>
+  <presenta_sintomo rdf:resource="#Caduta_Foglie"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
+  <causata_da rdf:resource="#Gloeosporium_olivarum"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gloeosporium olivarum</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia fungina che colpisce i frutti causando macchie bruno-nerastre</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Autunno</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ticchiolatura_Rosa">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Rosa_Ornamentale"/>
+  <presenta_sintomo rdf:resource="#Ingiallimento_Foglie"/>
+  <presenta_sintomo rdf:resource="#Caduta_Foglie"/>
+  <presenta_sintomo rdf:resource="#Macchie_Nere_Foglie"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
+  <causata_da rdf:resource="#Diplocarpon_rosae"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Diplocarpon rosae</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia fungina con macchie nere circolari sulle foglie</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primavera-Autunno</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Oidio_Rosa">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Rosa_Ornamentale"/>
+  <presenta_sintomo rdf:resource="#Muffa_Biancastra"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Zolfo"/>
+  <causata_da rdf:resource="#Sphaeroteca_pannosa"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sphaeroteca pannosa</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mal bianco, muffa biancastra su foglie e germogli</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primavera-Estate</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Peronospora_Rosa">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Rosa_Ornamentale"/>
+  <presenta_sintomo rdf:resource="#Ingiallimento_Foglie"/>
+  <presenta_sintomo rdf:resource="#Caduta_Foglie"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
+  <causata_da rdf:resource="#Peronospora_sparsa"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peronospora sparsa</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia fungina con macchie clorotiche e feltro miceliare grigio</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primavera</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Peronospora_Basilico">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Basilico_Comune"/>
+  <presenta_sintomo rdf:resource="#Ingiallimento_Foglie"/>
+  <presenta_sintomo rdf:resource="#Caduta_Foglie"/>
+  <richiede_trattamento rdf:resource="#Trattamento_Bicarbonato_Potassio"/>
+  <causata_da rdf:resource="#Peronospora_belbahrii"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peronospora belbahrii</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia fungina con macchie giallastre e muffa grigio-violacea</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primavera-Estate</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fusarium_Basilico">
+  <rdf:type rdf:resource="#Malattia"/>
+  <colpisce rdf:resource="#Basilico_Comune"/>
+  <presenta_sintomo rdf:resource="#Avvizzimento_Pianta"/>
+  <presenta_sintomo rdf:resource="#Annerimento_Gambo"/>
+  <richiede_trattamento rdf:resource="#Potatura_Parti_Infette"/>
+  <causata_da rdf:resource="#Fusarium_oxysporum"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fusarium oxysporum</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Annerimento del gambo con avvizzimento della pianta</ha_descrizione>
+  <ha_gravita rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ha_gravita>
+  <ha_periodo_attivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primavera-Estate</ha_periodo_attivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Macchie_Circolari_Grigie">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Macchie rotonde grigie con alone giallo</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Macchie_Nere_Foglie">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Macchie nere circolari su foglie</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ingiallimento_Foglie">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Foglie che diventano gialle</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Caduta_Foglie">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defogliazione prematura</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Muffa_Biancastra">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Patina bianca polverosa su foglie e germogli</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Tumori_Rami">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Escrescenze tumorali su rami e tronco</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Annerimento_Gambo">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gambo che diventa nero dalla base</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Macchie_Bruno_Nerastre_Frutti">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tacche bruno-nerastre su frutti</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Avvizzimento_Pianta">
+  <rdf:type rdf:resource="#Sintomo"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pianta che appassisce completamente</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Trattamento_Rame">
+  <rdf:type rdf:resource="#Trattamento"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prodotti rameici (idrossido di rame, poltiglia bordolese)</ha_descrizione>
+  <ha_dosaggio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">200g per 100 litri di acqua</ha_dosaggio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Trattamento_Zolfo">
+  <rdf:type rdf:resource="#Trattamento"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zolfo in polvere bagnabile</ha_descrizione>
+  <ha_dosaggio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2g per litro di acqua</ha_dosaggio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Trattamento_Bicarbonato_Potassio">
+  <rdf:type rdf:resource="#Trattamento"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bicarbonato di potassio in soluzione acquosa</ha_descrizione>
+  <ha_dosaggio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5g per litro di acqua</ha_dosaggio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Potatura_Parti_Infette">
+  <rdf:type rdf:resource="#Trattamento"/>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Asportazione meccanica delle parti malate</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Spilocaea_oleagina">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Pseudomonas_savastanoi">
+  <rdf:type rdf:resource="#Batterio"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Gloeosporium_olivarum">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Diplocarpon_rosae">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sphaeroteca_pannosa">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Peronospora_sparsa">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Peronospora_belbahrii">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fusarium_oxysporum">
+  <rdf:type rdf:resource="#Fungo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Olivo_Europeo">
+  <rdf:type rdf:resource="#Olivo"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Olea europaea</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albero sempreverde tipico del Mediterraneo</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rosa_Ornamentale">
+  <rdf:type rdf:resource="#Rosa"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rosa spp.</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arbusto ornamentale con fiori profumati</ha_descrizione>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Basilico_Comune">
+  <rdf:type rdf:resource="#Basilico"/>
+  <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ocimum basilicum</ha_nome_scientifico>
+  <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pianta aromatica annuale</ha_descrizione>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

@@ -1,0 +1,32 @@
+# ============================================
+# requirements.txt per Plant-Aid-KBS
+# Versione: 1.0
+# Python: >= 3.8
+# ============================================
+
+# === Knowledge Representation ===
+# Ontologie OWL
+owlready2==0.46
+
+# Regole Datalog
+clingo
+
+# === Machine Learning ===
+# Framework ML
+scikit-learn==1.5.2
+numpy==1.26.4
+pandas==2.2.3
+
+# === Bayesian Networks ===
+# Rete Bayesiana
+pgmpy==0.1.26
+
+# === Utilities ===
+# Logging avanzato
+loguru==0.7.2
+
+# CLI framework
+click==8.1.7
+
+# Progress bars
+tqdm==4.66.5

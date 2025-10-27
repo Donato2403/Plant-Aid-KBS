@@ -1,0 +1,56 @@
+# ============================================
+# .gitignore per Plant-Aid-KBS
+# ============================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Testing e Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Modelli ML salvati
+*.pkl
+*.joblib
+*.h5
+*.model
+
+# Dati sensibili (decommentare se necessario)
+# data/*.csv
+# data/*.xlsx
+
+# Log files
+*.log
+logs/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Environment variables
+.env
+.env.local

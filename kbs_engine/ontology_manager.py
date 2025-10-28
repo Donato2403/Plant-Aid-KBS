@@ -1,5 +1,4 @@
 """
-ontology_manager.py
 Modulo per la gestione dell'ontologia OWL del sistema Plant-Aid-KBS
 
 Questo modulo fornisce funzionalità per:
@@ -7,10 +6,6 @@ Questo modulo fornisce funzionalità per:
 - Definire classi, proprietà e individui
 - Eseguire query sull'ontologia
 - Eseguire ragionamento automatico con reasoner
-
-Autore: Plant-Aid-KBS Team
-Data: Ottobre 2025
-Libreria: Owlready2
 """
 
 from owlready2 import *
@@ -108,7 +103,7 @@ class GestoreOntologia:
                 pass
 
             # ==========================================
-            # PROPRIETA' OGGETTO (Object Properties)
+            # PROPRIETA' OGGETTO
             # ==========================================
 
             class colpisce(ObjectProperty):
@@ -138,7 +133,7 @@ class GestoreOntologia:
                 inverse_property = colpisce
 
             # ==========================================
-            # PROPRIETA' DATI (Data Properties)
+            # PROPRIETA' DATI
             # ==========================================
 
             class ha_nome_scientifico(DataProperty):

@@ -1,5 +1,4 @@
 """
-datalog_engine.py
 Modulo per il motore di inferenza basato su regole Datalog/ASP del sistema Plant-Aid-KBS
 
 Questo modulo fornisce funzionalita per:

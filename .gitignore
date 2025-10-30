@@ -39,7 +39,8 @@ htmlcov/
 *.h5
 *.model
 
-# Dati sensibili (decommentare se necessario)
+# Dati (decommentare se necessario)
+data/*.bif 
 # data/*.csv
 # data/*.xlsx
 

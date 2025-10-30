@@ -93,48 +93,48 @@ Il programma avvierà un'interfaccia interattiva. Segui le istruzioni a schermo:
 
 #### 1. Selezionare la pianta:
    
-    ```bash
-    1. Seleziona la pianta da diagnosticare:
-    [1] Olivo
-    [2] Rosa
-    [3] Basilico
+```bash
+    1. Seleziona la pianta da diagnosticare: 
+       [1] Olivo
+       [2] Rosa
+       [3] Basilico
     Inserisci il numero della pianta:
-    ``` 
-    Inserisci un singolo numero (es. 1) e premi Invio.
+``` 
+Inserisci un singolo numero (es. 1) e premi Invio.
 
 #### 2. Selezionare i sintomi osservati (selezione multipla):
 
-    ```bash
+```bash
     2. Seleziona i sintomi osservati:
-    [1] Macchie circolari grigie...
-    ...
-    [9] Avvizzimento completo della pianta
-    [0] Termina selezione sintomi
+       [1] Macchie circolari grigie...
+       ...
+       [9] Avvizzimento completo della pianta
+       [0] Termina selezione sintomi
     Inserisci un numero (Sintomi scelti: 0) o 0 per continuare:
-    ``` 
-    Questa è una selezione multipla. Devi inserire un numero di sintomo (es. 2) e premere Invio.
-    Il programma ti chiederà un altro numero. Continua a inserire i numeri per tutti i sintomi che osservi.
-    Quando hai finito di aggiungere sintomi, inserisci 0 e premi Invio per passare allo step successivo.
+``` 
+Questa è una selezione multipla. Devi inserire un numero di sintomo (es. 2) e premere Invio.
+Il programma ti chiederà un altro numero. Continua a inserire i numeri per tutti i sintomi che osservi.
+Quando hai finito di aggiungere sintomi, inserisci 0 e premi Invio per passare allo step successivo.
 
 #### 3. Selezionare la stagione corrente:
  
-    ```bash
+```bash
     3. Seleziona la stagione corrente (per Datalog):
        [1] Primavera
        ...
     Inserisci il numero della stagione:
-    ```  
-    Inserisci un singolo numero (es. 1) e premi Invio.
+```  
+Inserisci un singolo numero (es. 1) e premi Invio.
 
 #### 4. Conferma:
-    ```bash
+```bash
     Riepilogo Input Selezionato:
       Pianta:    Olivo
       Stagione:  Primavera
       Sintomi:   ['Ingiallimento delle foglie', ...]
     Procedere con la diagnosi? [Y/n]:
-    ```  
-    Premi Y e Invio per avviare l'analisi ibrida.
+```  
+Premi Y e Invio per avviare l'analisi ibrida.
 
 Al termine dell'analisi, il sistema fornirà un report diagnostico ibrido completo, aggregando i risultati di Datalog, SVM e Rete Bayesiana, e arricchendo il risultato con i trattamenti recuperati dall'ontologia.
 

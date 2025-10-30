@@ -17,8 +17,6 @@ e implementa il flusso diagnostico descritto nella proposta di progetto:
 4. Esegue l'analisi probabilistica (Rete Bayesiana).
 5. Aggrega i risultati e li presenta all'utente con una spiegazione.
 
-Autore: Donato Cancellara (come da README)
-Integrazione: Gemini
 """
 
 import click  # Per un'interfaccia CLI pulita

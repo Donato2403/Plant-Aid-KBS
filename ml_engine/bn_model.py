@@ -34,7 +34,7 @@ class ReteBayesiana:
     anche con evidenza parziale o incerta.
     """
     
-    # Lista completa dei sintomi supportati (coerente con SVM e Datalog)
+    # Lista completa dei sintomi supportati
     SINTOMI_SUPPORTATI = [
         "macchie_circolari_grigie",
         "ingiallimento_foglie",
@@ -47,7 +47,7 @@ class ReteBayesiana:
         "avvizzimento_pianta"
     ]
     
-    # Malattie supportate (formato snake_case, coerente con gli altri moduli)
+    # Malattie supportate
     MALATTIE_SUPPORTATE = [
         "occhio_pavone",
         "rogna_olivo",
@@ -59,7 +59,7 @@ class ReteBayesiana:
         "fusarium_basilico"
     ]
     
-    # Mapping per output human-readable
+    # Mapping per rendere i nomi delle malattie più leggibili
     MAPPING_MALATTIE = {
         "occhio_pavone": "Occhio di Pavone",
         "rogna_olivo": "Rogna dell'Olivo",

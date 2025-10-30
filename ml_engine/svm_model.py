@@ -63,7 +63,7 @@ class ClassificatoreSVM:
     PERCORSO_MODELLO_DEFAULT = Path("data/svm_model.pkl")
     PERCORSO_TRASFORMATORE_DEFAULT = Path("data/svm_transformer.pkl")
     
-    # Mapping centralizzato malattie (coerente con Datalog)
+    # Mapping centralizzato malattie
     MALATTIE_SUPPORTATE = [
         "Occhio di Pavone",
         "Rogna dell'Olivo",

@@ -18,6 +18,9 @@ Il sistema combina quattro moduli principali:
 
 L'intero sistema è orchestrato da `main_cli.py`, che aggrega i risultati dei diversi moduli per fornire una diagnosi finale robusta e spiegabile.
 
+La cartella `docs/` contiene la documentazione formale `doc_progetto.docx`, utile alla consegna finale.
+
+La cartella `data/` contiene i dati generati dall'escuzione dei moduli implementati.
 <br>
 
 ## 🚀 Guida all'Installazione e Esecuzione
@@ -100,7 +103,7 @@ Il programma avvierà un'interfaccia interattiva. Segui le istruzioni a schermo:
        [3] Basilico
     Inserisci il numero della pianta:
 ``` 
-Inserisci un singolo numero (es. 1) e premi Invio.
+Inserisci un singolo numero (es. 1) e premi *Invio*.
 
 #### 2. Selezionare i sintomi osservati (selezione multipla):
 
@@ -112,9 +115,9 @@ Inserisci un singolo numero (es. 1) e premi Invio.
        [0] Termina selezione sintomi
     Inserisci un numero (Sintomi scelti: 0) o 0 per continuare:
 ``` 
-Questa è una selezione multipla. Devi inserire un numero di sintomo (es. 2) e premere Invio.
+Questa è una selezione multipla. Devi inserire un numero di sintomo (es. 2) e premere *Invio*.
 Il programma ti chiederà un altro numero. Continua a inserire i numeri per tutti i sintomi che osservi.
-Quando hai finito di aggiungere sintomi, inserisci 0 e premi Invio per passare allo step successivo.
+Quando hai finito di aggiungere sintomi, inserisci *0* e premi *Invio* per passare allo step successivo.
 
 #### 3. Selezionare la stagione corrente:
  
@@ -124,7 +127,7 @@ Quando hai finito di aggiungere sintomi, inserisci 0 e premi Invio per passare a
        ...
     Inserisci il numero della stagione:
 ```  
-Inserisci un singolo numero (es. 1) e premi Invio.
+Inserisci un singolo numero (es. 1) e premi *Invio*.
 
 #### 4. Conferma:
 ```bash
@@ -134,7 +137,7 @@ Inserisci un singolo numero (es. 1) e premi Invio.
       Sintomi:   ['Ingiallimento delle foglie', ...]
     Procedere con la diagnosi? [Y/n]:
 ```  
-Premi Y e Invio per avviare l'analisi ibrida.
+Inserisci *Y* e premi *Invio* per avviare l'analisi ibrida.
 
 Al termine dell'analisi, il sistema fornirà un report diagnostico ibrido completo, aggregando i risultati di Datalog, SVM e Rete Bayesiana, e arricchendo il risultato con i trattamenti recuperati dall'ontologia.
 
@@ -161,7 +164,7 @@ Il sistema entra nella funzione *accogli_input_utente()*:
 
 - L'utente inserisce le sue scelte (es. "1" per Olivo, "1", "2", "3" per i sintomi, "1" per Primavera).
 
-- L'input viene memorizzato in un dizionario (es. *{'pianta': 'olivo', 'sintomi': ['macchie_circolari_grigie', ...], 'stagione': 'primavera'*}).
+- L'input viene memorizzato in un dizionario (es. *{'pianta': 'olivo', 'sintomi': ['macchie_circolari_grigie', ...], 'stagione': 'primavera'}*).
 
 ### FASE 3: Esecuzione Parallela dei Motori Diagnostici
 Il flusso chiama *esegui_diagnosi_completa()*, che interroga i tre motori diagnostici:
@@ -195,37 +198,38 @@ Il flusso chiama *esegui_diagnosi_completa()*, che interroga i tre motori diagno
 - **Output:** Un dizionario con le probabilità per tutte le malattie (es. *{'occhio_pavone': 0.97, 'rogna_olivo': 0.01, ...}*).
 
 ### FASE 4: Aggregazione e Spiegazione
-Questa è la logica ibrida centrale, come descritta nella tua proposta. La funzione *_aggrega_risultati()*:
+Questa è la logica ibrida centrale. La funzione *_aggrega_risultati()*:
 
 - Cicla su tutte le malattie conosciute.
 
 - Per ognuna, estrae i punteggi dai tre motori (Datalog, SVM, BN).
 
-- Calcola un "Fattore di Confidenza" finale usando la media pesata (es. BN*0.5 + Datalog*0.3 + SVM*0.2).
+- Calcola un "Fattore di Confidenza" finale usando la media pesata (es. BN * 0.5 + Datalog * 0.3 + SVM * 0.2).
 
 - Ordina i risultati e identifica la diagnosi_top.
 
-- Conserva i punteggi individuali per la "Spiegazione".
+- Conserva i punteggi individuali per la spiegazione.
 
 ### Fase 5: Arricchimento con Ontologia
-- Il sistema ora sa qual è la diagnosi più probabile (es. occhio_pavone).
+- Il sistema ora sa qual è la diagnosi più probabile (es. *occhio_pavone*).
 
-- Converte il nome canonico (occhio_pavone) nel nome dell'individuo nell'ontologia (Occhio_di_Pavone).
+- Converte il nome canonico (*occhio_pavone*) nel nome dell'individuo nell'ontologia (*Occhio_di_Pavone*).
 
 - Chiama *gestore_ontologia.ottieni_info_malattia('Occhio_di_Pavone')*.
 
-- Il gestore interroga l'ontologia OWL per trovare la descrizione, la gravità e, soprattutto, le istanze collegate tramite la proprietà richiede_trattamento.
+- Il gestore interroga l'ontologia OWL per trovare la descrizione, la gravità e, soprattutto, le istanze collegate tramite la proprietà *richiede_trattamento*.
 
 ### Fase 6: Presentazione del Report Finale
 La funzione *stampa_report_diagnosi()* riceve il report finale aggregato e arricchito e stampa a schermo le tre sezioni:
 
-- Diagnosi Ibrida: La malattia top e il Fattore di Confidenza.
+- **Diagnosi Ibrida:** La malattia più probabile e il fattore di confidenza.
 
-- Spiegazione: I punteggi individuali dei tre motori che hanno portato a quel risultato.
+- **Spiegazione:** I punteggi individuali dei tre motori che hanno portato a quel risultato.
 
-- Dettagli (dall'Ontologia): Descrizione, gravità e trattamenti consigliati.
+- **Dettagli (dall'Ontologia):** Descrizione, gravità e trattamenti consigliati.
   
-<br>
+
+---
 
 ## 👥 Autori
 
@@ -234,7 +238,6 @@ Corso di Ingegneria della Conoscenza
 Università degli Studi di Bari Aldo Moro  
 Dipartimento di Informatica
 
----
 
 ## 🔗 Riferimenti
 
@@ -244,6 +247,7 @@ Dipartimento di Informatica
 - [Clingo User Guide](https://www.google.com/search?q=https://potassco.org/clingo/user-guide/)
 - [pgmpy Documentation](https://pgmpy.org/)
 - [Scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
+- La base di conoscenza simbolica (ASP/Datalog) è stata sviluppata con il supporto di *Google Gemini Pro* per la formalizzazione delle euristiche diagnostiche a partire dalle fonti di dominio.
 
 ### Riferimenti Dominio Botanico (Fonti Esterne)
 

@@ -126,8 +126,8 @@
   <rdf:type rdf:resource="#Malattia"/>
   <colpisce rdf:resource="#Olivo_Europeo"/>
   <presenta_sintomo rdf:resource="#Tumori_Rami"/>
-  <richiede_trattamento rdf:resource="#Potatura_Parti_Infette"/>
   <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
+  <richiede_trattamento rdf:resource="#Potatura_Parti_Infette"/>
   <causata_da rdf:resource="#Pseudomonas_savastanoi"/>
   <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pseudomonas savastanoi</ha_nome_scientifico>
   <ha_descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malattia batterica con formazione di tumori su rami e tronco</ha_descrizione>
@@ -152,9 +152,9 @@
 <owl:NamedIndividual rdf:about="#Ticchiolatura_Rosa">
   <rdf:type rdf:resource="#Malattia"/>
   <colpisce rdf:resource="#Rosa_Ornamentale"/>
+  <presenta_sintomo rdf:resource="#Macchie_Nere_Foglie"/>
   <presenta_sintomo rdf:resource="#Ingiallimento_Foglie"/>
   <presenta_sintomo rdf:resource="#Caduta_Foglie"/>
-  <presenta_sintomo rdf:resource="#Macchie_Nere_Foglie"/>
   <richiede_trattamento rdf:resource="#Trattamento_Rame"/>
   <causata_da rdf:resource="#Diplocarpon_rosae"/>
   <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Diplocarpon rosae</ha_nome_scientifico>
@@ -204,8 +204,8 @@
 <owl:NamedIndividual rdf:about="#Fusarium_Basilico">
   <rdf:type rdf:resource="#Malattia"/>
   <colpisce rdf:resource="#Basilico_Comune"/>
-  <presenta_sintomo rdf:resource="#Avvizzimento_Pianta"/>
   <presenta_sintomo rdf:resource="#Annerimento_Gambo"/>
+  <presenta_sintomo rdf:resource="#Avvizzimento_Pianta"/>
   <richiede_trattamento rdf:resource="#Potatura_Parti_Infette"/>
   <causata_da rdf:resource="#Fusarium_oxysporum"/>
   <ha_nome_scientifico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fusarium oxysporum</ha_nome_scientifico>

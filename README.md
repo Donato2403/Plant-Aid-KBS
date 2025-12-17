@@ -7,7 +7,7 @@
 
 ## 📋 Descrizione
 
-Plant-Aid-KBS è un **sistema ibrido basato sulla conoscenza (KBS)** che integra tecniche simboliche e statistiche per diagnosticare malattie delle piante e fornire raccomandazioni di cura, come descritto nella proposta di progetto.
+Plant-Aid-KBS è un **sistema ibrido basato sulla conoscenza (KBS)** che integra tecniche simboliche e statistiche per diagnosticare malattie delle piante e fornire raccomandazioni di cura.
 
 Il sistema combina quattro moduli principali:
 
@@ -206,7 +206,7 @@ Questa è la logica ibrida centrale. La funzione *_aggrega_risultati()*:
 
 - Calcola un "Fattore di Confidenza" finale usando la media pesata (es. BN * 0.5 + Datalog * 0.3 + SVM * 0.2).
 
-- Ordina i risultati e identifica la diagnosi_top.
+- Ordina i risultati e identifica la *diagnosi_top*.
 
 - Conserva i punteggi individuali per la spiegazione.
 

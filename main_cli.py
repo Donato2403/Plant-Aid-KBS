@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 """
 =============================================================================
@@ -180,9 +178,9 @@ class SistemaDiagnostico:
         if not self.modelli_caricati:
             raise RuntimeError("Modelli non caricati correttamente.")
 
-        click.echo("\n" + "="*70)
+        click.echo("\n" + "="*80)
         click.echo(click.style("AVVIO FLUSSO DIAGNOSTICO IBRIDO...", fg="cyan", bold=True))
-        click.echo("="*70)
+        click.echo("="*80)
 
         # --- 1. INFERENZA SIMBOLICA (DATALOG) ---
         click.echo("[1/3] Esecuzione Motore Datalog (Inferenza simbolica)...")
@@ -313,10 +311,10 @@ class SistemaDiagnostico:
 
 def stampa_titolo():
     """Stampa il titolo del programma."""
-    click.echo("\n" + "*"*70)
-    click.echo(click.style("                 Plant-Aid-KBS: Sistema Diagnostico Ibrido", bold=True, fg="green"))
+    click.echo("\n" + "*"*80)
+    click.echo(click.style("            Plant-Aid-KBS: Sistema Diagnostico Ibrido", bold=True, fg="green"))
     click.echo(click.style("     Progetto di Ingegneria della Conoscenza - A.A. 2024/2025", fg="green"))
-    click.echo("*"*70 + "\n")
+    click.echo("*"*80 + "\n")
 
 def raccogli_input_utente() -> Optional[Dict[str, Any]]:
     """Guida l'utente nella selezione di pianta, sintomi e stagione."""
@@ -381,17 +379,17 @@ def stampa_report_diagnosi(report: Dict[str, Any]):
     diagnosi_top = report.get("diagnosi_top")
     
     if not diagnosi_top or diagnosi_top.get("confidenza_finale", 0.0) < 0.1: # Soglia minima
-        click.echo("\n" + "="*70)
+        click.echo("\n" + "="*80)
         click.echo(click.style("RAPPORTO DIAGNOSTICO FINALE", bold=True, fg="red"))
-        click.echo("="*70)
+        click.echo("="*80)
         click.echo(click.style("Non è stato possibile formulare una diagnosi robusta.", fg="red"))
         click.echo("I sintomi forniti non corrispondono in modo sufficiente a nessuna malattia nota nel sistema.")
         return
 
-    click.echo("\n" + "="*70)
+    click.echo("\n" + "="*80)
     click.echo(click.style("RAPPORTO DIAGNOSTICO FINALE", bold=True, fg="green"))
-    click.echo("="*70)
-    
+    click.echo("="*80)
+
     # --- Sezione 1: Diagnosi Finale ---
     click.echo(click.style("\n--- 1. Diagnosi Ibrida Aggregata ---", bold=True, fg="yellow"))
     click.echo(f"  Malattia più probabile: {click.style(diagnosi_top['nome_leggibile'], bold=True, fg='bright_green')}")
@@ -423,10 +421,10 @@ def stampa_report_diagnosi(report: Dict[str, Any]):
                     click.echo(f"    (Dosaggio: {t.get('dosaggio')})")
         else:
             click.echo("  Nessun trattamento specifico trovato nell'ontologia.")
-    
-    click.echo("\n" + "="*70)
+
+    click.echo("\n" + "="*80)
     click.echo(click.style("Avvertenza: Questa è una diagnosi automatica. Consultare sempre un agronomo.", fg="cyan"))
-    click.echo("="*70)
+    click.echo("="*80)
 
 
 # --- Definizione Comandi CLI ---

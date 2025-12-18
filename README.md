@@ -5,7 +5,7 @@
 
 ---
 
-## 📋 Descrizione
+## Descrizione
 
 Plant-Aid-KBS è un **sistema ibrido basato sulla conoscenza (KBS)** che integra tecniche simboliche e statistiche per diagnosticare malattie delle piante e fornire raccomandazioni di cura.
 
@@ -23,13 +23,13 @@ La cartella `docs/` contiene la documentazione formale `doc_progetto.docx`, util
 La cartella `data/` contiene i dati generati dall'escuzione dei moduli implementati.
 <br>
 
-## 🚀 Guida all'Installazione e Esecuzione
+## Guida all'Installazione e Esecuzione
 
 Questa guida descrive i passaggi necessari per configurare l'ambiente, generare i modelli di machine learning (che non sono tracciati da Git) ed eseguire il sistema diagnostico.
 
 ### Passo 1: Clonare la Repository
 
-Clona la repository sulla tua macchina locale:
+Clonare la repository sulla propria macchina locale:
 
 ```bash
 git clone https://github.com/Donato2403/Plant-Aid-KBS.git
@@ -38,13 +38,13 @@ cd Plant-Aid-KBS
 
 ### Passo 2: Configurare l'Ambiente Virtuale
 
-Crea l'ambiente virtuale (assicurati che python si riferisca a Python 3.8+).
+Creare l'ambiente virtuale (assicurarsi che python si riferisca a Python 3.8+).
 
 ```bash
 python -m venv venv
 ```
 
-Attiva l'ambiente.
+Attivare l'ambiente.
 
 ```bash
 # Su Windows (cmd):
@@ -68,15 +68,15 @@ pip install -r requirements.txt
 
 I file dei modelli addestrati (**.pkl**, **.bif**) non sono inclusi nella repository e devono essere generati prima di poter eseguire il programma principale.
 
-Esegui i seguenti script di addestramento dalla cartella radice del progetto:
+Eseguire gli script di addestramento dalla cartella radice del progetto:
 
-1. Genera il modello SVM: Questo script addestra il classificatore SVM (usando un set di dati sintetico interno) e salva `svm_model.pkl` e        `svm_transformer.pkl` nella cartella `data/`. (Output atteso: Report di classificazione SVM e messaggi di salvataggio)
+1. Generare il modello SVM: Questo script addestra il classificatore SVM (usando un set di dati sintetico interno) e salva `svm_model.pkl` e        `svm_transformer.pkl` nella cartella `data/`. (Output atteso: Report di classificazione SVM e messaggi di salvataggio)
 
 ```bash
 python ml_engine/svm_model.py
 ```
 
-2. Genera la Rete Bayesiana: Questo script addestra la Rete Bayesiana utilizzando `data/training_data.csv`
+2. Generare la Rete Bayesiana: Questo script addestra la Rete Bayesiana utilizzando `data/training_data.csv`
 e salva `bn_model.bif` nella cartella `data/`. (Output atteso: Log di addestramento della BN e messaggi di salvataggio)
 
 ```bash
@@ -92,7 +92,7 @@ Ora che l'ambiente è configurato e i modelli sono stati generati, è possibile 
 ```bash
 python main_cli.py diagnosi
 ``` 
-Il programma avvierà un'interfaccia interattiva. Segui le istruzioni a schermo:
+Il programma avvierà un'interfaccia interattiva. Seguire le istruzioni a schermo:
 
 #### 1. Selezionare la pianta:
    
@@ -103,7 +103,7 @@ Il programma avvierà un'interfaccia interattiva. Segui le istruzioni a schermo:
        [3] Basilico
     Inserisci il numero della pianta:
 ``` 
-Inserisci un singolo numero (es. 1) e premi *Invio*.
+Inserire un singolo numero (es. 1) e premere *Invio*.
 
 #### 2. Selezionare i sintomi osservati (selezione multipla):
 
@@ -115,9 +115,9 @@ Inserisci un singolo numero (es. 1) e premi *Invio*.
        [0] Termina selezione sintomi
     Inserisci un numero (Sintomi scelti: 0) o 0 per continuare:
 ``` 
-Questa è una selezione multipla. Devi inserire un numero di sintomo (es. 2) e premere *Invio*.
-Il programma ti chiederà un altro numero. Continua a inserire i numeri per tutti i sintomi che osservi.
-Quando hai finito di aggiungere sintomi, inserisci *0* e premi *Invio* per passare allo step successivo.
+Questa è una selezione multipla. Bisogna inserire un numero di sintomo (es. 2) e premere *Invio*.
+Il programma chiederà un altro numero. Occorre continuare a inserire i numeri per tutti i sintomi che si osservano.
+Dopo aver inserito tutti i sintomi, inserire *0* e premere *Invio* per passare allo step successivo.
 
 #### 3. Selezionare la stagione corrente:
  
@@ -127,7 +127,7 @@ Quando hai finito di aggiungere sintomi, inserisci *0* e premi *Invio* per passa
        ...
     Inserisci il numero della stagione:
 ```  
-Inserisci un singolo numero (es. 1) e premi *Invio*.
+Inserire un singolo numero (es. 1) e premere *Invio*.
 
 #### 4. Conferma:
 ```bash
@@ -137,17 +137,17 @@ Inserisci un singolo numero (es. 1) e premi *Invio*.
       Sintomi:   ['Ingiallimento delle foglie', ...]
     Procedere con la diagnosi? [Y/n]:
 ```  
-Inserisci *Y* e premi *Invio* per avviare l'analisi ibrida.
+Inserire *Y* e premere *Invio* per avviare l'analisi ibrida.
 
 Al termine dell'analisi, il sistema fornirà un report diagnostico ibrido completo, aggregando i risultati di Datalog, SVM e Rete Bayesiana, e arricchendo il risultato con i trattamenti recuperati dall'ontologia.
 
 <br>
 
-## 🔬 Flusso di Esecuzione Dettagliato
-Quando esegui il comando, il sistema segue un processo articolato in 6 fasi principali.
+## Flusso di Esecuzione Dettagliato
+Quando viene eseguito il comando, il sistema segue un processo articolato in 6 fasi principali.
 
 ### FASE 1: Inizializzazione e Caricamento dei Moduli
-Appena avvii lo script, la classe *SistemaDiagnostico* viene istanziata. Questa fase carica in memoria tutti i componenti del KBS:
+Appena eseguito lo script, la classe *SistemaDiagnostico* viene istanziata. Questa fase carica in memoria tutti i componenti del KBS:
 
 - **Caricamento Ontologia:** Il *GestoreOntologia* viene inizializzato e legge il file `data/plant_care.owl`, mappando tutte le classi (Piante, Malattie), le proprietà e gli individui (Occhio di Pavone, Trattamento Rame, ecc.).
 
@@ -231,7 +231,7 @@ La funzione *stampa_report_diagnosi()* riceve il report finale aggregato e arric
 
 ---
 
-## 👥 Autori
+## Autori
 
 **Donato Cancellara**  
 Corso di Ingegneria della Conoscenza  
@@ -239,7 +239,7 @@ Università degli Studi di Bari Aldo Moro
 Dipartimento di Informatica
 
 
-## 🔗 Riferimenti
+## Riferimenti
 
 ### Riferimenti Tecnici del Progetto
 

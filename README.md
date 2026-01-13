@@ -118,7 +118,7 @@ Inserire un singolo numero (come test si può inserire *1*) e premere *Invio*.
 Questa è una selezione multipla. Bisogna inserire un numero di sintomo (es. *2*) e premere *Invio*.
 Il programma chiederà un altro numero. Occorre continuare a inserire i numeri per tutti i sintomi che si osservano.
 Dopo aver inserito tutti i sintomi, digitare *0* e premere *Invio* per passare allo step successivo.
-Come test si possono inserire secondo la sequenza precedente i valori *1*, *2*, *3* e lo *0* finale per conludere la scelta dei sintomi.
+Come test si possono inserire, secondo la sequenza precedente, i valori *1*, *2*, *3* e lo *0* finale per conludere la scelta dei sintomi.
 
 #### 3. Selezionare la stagione corrente:
  

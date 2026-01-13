@@ -33,7 +33,7 @@ Clonare la repository sulla propria macchina locale:
 
 ```bash
 git clone https://github.com/Donato2403/Plant-Aid-KBS.git
-cd Plant-Aid-KBS
+cd nome_cartella_locale
 ```
 
 ### Passo 2: Configurare l'Ambiente Virtuale
@@ -103,7 +103,7 @@ Il programma avvierà un'interfaccia interattiva. Seguire le istruzioni a scherm
        [3] Basilico
     Inserisci il numero della pianta:
 ``` 
-Inserire un singolo numero (es. 1) e premere *Invio*.
+Inserire un singolo numero (come test si può inserire *1*) e premere *Invio*.
 
 #### 2. Selezionare i sintomi osservati (selezione multipla):
 
@@ -115,9 +115,10 @@ Inserire un singolo numero (es. 1) e premere *Invio*.
        [0] Termina selezione sintomi
     Inserisci un numero (Sintomi scelti: 0) o 0 per continuare:
 ``` 
-Questa è una selezione multipla. Bisogna inserire un numero di sintomo (es. 2) e premere *Invio*.
+Questa è una selezione multipla. Bisogna inserire un numero di sintomo (es. *2*) e premere *Invio*.
 Il programma chiederà un altro numero. Occorre continuare a inserire i numeri per tutti i sintomi che si osservano.
-Dopo aver inserito tutti i sintomi, inserire *0* e premere *Invio* per passare allo step successivo.
+Dopo aver inserito tutti i sintomi, digitare *0* e premere *Invio* per passare allo step successivo.
+Come test si possono inserire secondo la sequenza precedente i valori *1*, *2*, *3* e lo *0* finale per conludere la scelta dei sintomi.
 
 #### 3. Selezionare la stagione corrente:
  
@@ -127,7 +128,7 @@ Dopo aver inserito tutti i sintomi, inserire *0* e premere *Invio* per passare a
        ...
     Inserisci il numero della stagione:
 ```  
-Inserire un singolo numero (es. 1) e premere *Invio*.
+Inserire un singolo numero (come test si può inserire *1*) e premere *Invio*.
 
 #### 4. Conferma:
 ```bash
@@ -140,11 +141,10 @@ Inserire un singolo numero (es. 1) e premere *Invio*.
 Inserire *Y* e premere *Invio* per avviare l'analisi ibrida.
 
 Al termine dell'analisi, il sistema fornirà un report diagnostico ibrido completo, aggregando i risultati di Datalog, SVM e Rete Bayesiana, e arricchendo il risultato con i trattamenti recuperati dall'ontologia.
-
 <br>
 
 ## Flusso di Esecuzione Dettagliato
-Quando viene eseguito il comando, il sistema segue un processo articolato in 6 fasi principali.
+Quando viene eseguito il comando (passo 5 della sezione precedente), il sistema segue un processo articolato in 6 fasi principali.
 
 ### FASE 1: Inizializzazione e Caricamento dei Moduli
 Appena eseguito lo script, la classe *SistemaDiagnostico* viene istanziata. Questa fase carica in memoria tutti i componenti del KBS:
